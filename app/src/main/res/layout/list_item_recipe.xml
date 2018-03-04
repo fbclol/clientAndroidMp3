@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+  <ImageView
+      android:id="@+id/music_list_thumbnail"
+      android:layout_width="90dp"
+      android:layout_height="90dp"
+
+      android:layout_centerVertical="true"
+
+      android:layout_marginBottom="6dp"
+      android:layout_marginTop="6dp"
+      android:contentDescription="@string/thumbnail"
+      android:scaleType="centerInside"
+      tools:src="@drawable/ic_music" />
+  <!--android:layout_marginStart="4dp"-->
+  <!--android:layout_alignParentStart="true"-->
+
+  <TextView
+      android:id="@+id/music_list_genre"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:layout_centerVertical="true"
+      android:layout_marginEnd="19dp"
+      android:layout_marginRight="19dp"
+      android:maxLines="1"
+      android:textColor="#000000"
+      android:textSize="12sp"
+      tools:text="Genre" />
+  <!--android:layout_alignParentEnd="true"-->
+  <!--android:layout_marginEnd="2dp"-->
+  <!--android:layout_marginStart="4dp"-->
+
+  <RelativeLayout
+      android:id="@+id/music_list_text_layout"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerVertical="true">
+    <!--android:layout_toEndOf="@id/recipe_list_thumbnail"-->
+    <!--android:layout_toStartOf="@id/recipe_list_detail"-->
+
+  </RelativeLayout>
+
+  <TextView
+      android:id="@+id/music_list_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/music_list_author"
+      android:layout_marginLeft="12dp"
+      android:layout_marginStart="12dp"
+      android:layout_toEndOf="@+id/music_list_thumbnail"
+      android:layout_toRightOf="@+id/music_list_thumbnail"
+      android:textSize="18sp"
+      tools:text="Name" />
+
+  <TextView
+      android:id="@+id/music_list_author"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignBottom="@+id/music_list_thumbnail"
+      android:layout_alignLeft="@+id/music_list_name"
+      android:layout_alignStart="@+id/music_list_name"
+      android:ellipsize="end"
+      android:maxLines="3"
+      android:textSize="16sp"
+      tools:text="Author" />
+</RelativeLayout>
