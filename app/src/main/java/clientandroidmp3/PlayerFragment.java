@@ -20,11 +20,10 @@ import app.*;
 public class PlayerFragment extends Fragment implements EasyVideoCallback,AdapterView.OnItemSelectedListener  {
     //    private static final String TEST_URL = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
     private EasyVideoPlayer player;
-//    static final String ipServeur = "192.168.0.17"; momo parent
-//    static final String ipServeur = "192.168.0.17"; momo appart
-    static final String ipServeur = "192.168.1.18"; // moi
-    static final int portServeur = 8090;
-    private static final String TEST_URL = "http://"+ipServeur+":"+portServeur+"/MINIONS.mp3";
+    static final String ipServeur = IceSingleton.ipServeur; // moi
+    static final int portServeur = IceSingleton.portServeur;
+//    private static final String TEST_URL = "http://"+ipServeur+":"+portServeur+"/MINIONS.mp3";
+    private static final String URL = "http://"+ipServeur+":"+portServeur+"/sample.mp3";
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
@@ -41,10 +40,10 @@ public class PlayerFragment extends Fragment implements EasyVideoCallback,Adapte
 ////        for (music music : server.displayListMusic()) {
 ////            System.out.println(music.name + "         " + music.genre + "      " + music.author + "           " + music.url);
 ////        }
-////        server.LibvlcPlayerPlay();
-////        // Sets the source to the HTTP URL held in the TEST_URL variable.
-////        // To play files, you can use Uri.fromFile(new File("..."))
-////        player.setSource(Uri.parse(TEST_URL));
+//        server.LibvlcPlayerPlay();
+//        // Sets the source to the HTTP URL held in the TEST_URL variable.
+//        // To play files, you can use Uri.fromFile(new File("..."))
+//        player.setSource(Uri.parse(TEST_URL));
 //    }
 
     @Override
@@ -60,10 +59,11 @@ public class PlayerFragment extends Fragment implements EasyVideoCallback,Adapte
         for (music music : server.displayListMusic()) {
             System.out.println(music.name + "         " + music.genre + "      " + music.author + "           " + music.url);
         }
-        server.LibvlcPlayerPlay();
+
+        //server.LibvlcPlayerPlay();
         // Sets the source to the HTTP URL held in the TEST_URL variable.
         // To play files, you can use Uri.fromFile(new File("..."))
-        player.setSource(Uri.parse(TEST_URL));
+        player.setSource(Uri.parse(URL));
     }
 
     @Nullable
