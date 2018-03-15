@@ -2,7 +2,6 @@ package clientandroidmp3;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.afollestad.easyvideoplayer.EasyVideoPlayer;
 
 import app.*;
 
@@ -31,17 +28,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         final Context context = this.getContext();
 
-        final ArrayList<MusicMapping> musicList = new ArrayList<>();
+        final ArrayList<music> musicList = new ArrayList<>();
 
-        for (music music : server.displayListMusic()) {
-            MusicMapping musicMapping = new MusicMapping();
+        for (music musicMapp : server.displayListMusic()) {
+            music music = new music();
 
-            musicMapping.name = music.name;
-            musicMapping.genre = music.genre;
-            musicMapping.url = music.url;
-            musicMapping.author = music.author;
-            musicList.add(musicMapping);
-            System.out.println(music.name + "         " + music.genre + "      " + music.author + "           " + music.url);
+            music.name = musicMapp.name;
+            music.genre = musicMapp.genre;
+            music.url = musicMapp.url;
+            music.author = musicMapp.author;
+            musicList.add(music);
+            System.out.println(musicMapp.name + "         " + musicMapp.genre + "      " + musicMapp.author + "           " + musicMapp.url);
         }
 
         // Create adapter
@@ -56,9 +53,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                MusicMapping selectedMusicMapping = musicList.get(position);
+                music selectedMusicMapping = musicList.get(position);
 
-                Intent detailIntent = new Intent(context, RecipeDetailActivity.class);
+                Intent detailIntent = new Intent(context, MusicDetailActivity.class);
                 detailIntent.putExtra("title", selectedMusicMapping.name);
                 detailIntent.putExtra("url", selectedMusicMapping.author);
 

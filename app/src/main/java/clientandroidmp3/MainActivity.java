@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -58,30 +57,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new HomeFragment();
         } else if (id == R.id.player) {
             fragment = new PlayerFragment();
-        } else if (id == R.id.examSchedule) {
-            fragment = new ExamScheduleFragment();
-        } else if (id == R.id.attendence) {
-            fragment = new AttendenceFragment();
-        } else if (id == R.id.result) {
-            fragment = new ResultFragment();
-        } else if (id == R.id.fb) {
-            bundle.putString("url", "https://www.facebook.com/androidhungerAH");
-            fragment = new WebViewFragment();
-            fragment.setArguments(bundle);
-        } else if (id == R.id.gplus) {
-            bundle.putString("url", "https://plus.google.com/+Androidhunger");
-            fragment = new WebViewFragment();
-            fragment.setArguments(bundle);
-        } else if (id == R.id.twitter) {
-            bundle.putString("url", "https://www.twitter.com/android_hunger");
-            fragment = new WebViewFragment();
-            fragment.setArguments(bundle);
         } else if (id == R.id.github) {
             bundle.putString("url", "https://github.com/fbclol/mp3Ice");
-            fragment = new WebViewFragment();
-            fragment.setArguments(bundle);
-        } else if (id == R.id.youtube) {
-            bundle.putString("url", "https://www.youtube.com/androidhunger");
             fragment = new WebViewFragment();
             fragment.setArguments(bundle);
         }

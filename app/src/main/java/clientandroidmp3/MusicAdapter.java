@@ -32,6 +32,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import com.squareup.picasso.Picasso;
 
+import app.music;
+
 public class MusicAdapter extends BaseAdapter {
 
   public static final String TAG = MusicAdapter.class.getSimpleName();
@@ -47,10 +49,10 @@ public class MusicAdapter extends BaseAdapter {
 
   private Context mContext;
   private LayoutInflater mInflater;
-  private ArrayList<MusicMapping> mDataSource;
+  private ArrayList<music> mDataSource;
 
 
-  public MusicAdapter(Context context, ArrayList<MusicMapping> items) {
+  public MusicAdapter(Context context, ArrayList<music> items) {
     mContext = context;
     mDataSource = items;
     mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -89,69 +91,6 @@ public class MusicAdapter extends BaseAdapter {
     return position;
   }
 
-//  UN-OPTIMISED IMPLEMENTATION OF getView()
-//  /**
-//   * Get a View that displays the data at the specified position in the data set. You can either
-//   * create a View manually or inflate it from an XML layout file. When the View is inflated, the
-//   * parent View (GridView, ListView...) will apply default layout parameters unless you use
-//   * {@link LayoutInflater#inflate(int, ViewGroup, boolean)}
-//   * to specify a root view and to prevent attachment to the root.
-//   *
-//   * @param position    The position of the item within the adapter's data set of the item whose view
-//   *                    we want.
-//   * @param convertView The old view to reuse, if possible. Note: You should check that this view
-//   *                    is non-null and of an appropriate type before using. If it is not possible to convert
-//   *                    this view to display the correct data, this method can create a new view.
-//   *                    Heterogeneous lists can specify their number of view types, so that this View is
-//   *                    always of the right type (see {@link #getViewTypeCount()} and
-//   *                    {@link #getItemViewType(int)}).
-//   * @param parent      The parent that this view will eventually be attached to
-//   * @return A View corresponding to the data at the specified position.
-//   */
-//  @Override
-//  public View getView(int position, View convertView, ViewGroup parent) {
-//
-//    // Get view for row item
-//    mInflater = (LayoutInflater) mContext
-//        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//    View rowView = mInflater.inflate(R.layout.list_item_recipe, parent, false);
-//
-//    // Get relevant subviews of row view
-//    TextView titleTextView = (TextView) rowView.findViewById(com.raywenderlich.alltherecipes.R.id.recipe_list_title);
-//    TextView subtitleTextView = (TextView) rowView.findViewById(com.raywenderlich.alltherecipes.R.id.recipe_list_subtitle);
-//    TextView detailTextView = (TextView) rowView.findViewById(com.raywenderlich.alltherecipes.R.id
-//        .recipe_list_detail);
-//    ImageView thumbnailImageView = (ImageView) rowView.findViewById(com.raywenderlich.alltherecipes.R.id.recipe_list_thumbnail);
-//
-//    //Get corresponding recipe for row
-//    Recipe recipe = (Recipe) getItem(position);
-//
-//    // Update row view's textviews to display recipe information
-//    titleTextView.setText(recipe.title);
-//    subtitleTextView.setText(recipe.description);
-//    detailTextView.setText(recipe.label);
-//
-//    // Use Picasso to load the image. Temporarily have a placeholder in case it's slow to load
-//    Picasso.with(mContext).load(recipe.imageUrl).placeholder(R.mipmap
-//        .ic_launcher).into(thumbnailImageView);
-//
-//    // Style text views
-//    Typeface titleTypeFace = Typeface.createFromAsset(mContext.getAssets(),
-//        "fonts/JosefinSans-Bold.ttf");
-//    titleTextView.setTypeface(titleTypeFace);
-//    Typeface subtitleTypeFace = Typeface.createFromAsset(mContext.getAssets(),
-//        "fonts/JosefinSans-SemiBoldItalic.ttf");
-//    subtitleTextView.setTypeface(subtitleTypeFace);
-//    Typeface detailTypeFace = Typeface.createFromAsset(mContext.getAssets(),
-//        "fonts/Quicksand-Bold.otf");
-//    detailTextView.setTypeface(detailTypeFace);
-//    detailTextView.setTextColor(android.support.v4.content.ContextCompat.getColor(mContext, LABEL_COLORS
-//        .get(recipe.label)));
-//
-//    return rowView;
-//  }
-//}
-
   /**
    * Get a View that displays the data at the specified position in the data set. You can either
    * create a View manually or inflate it from an XML layout file. When the View is inflated, the
@@ -179,7 +118,7 @@ public class MusicAdapter extends BaseAdapter {
     if (convertView == null) {
 
       // Inflate the custom row layout from your XML.
-      convertView = mInflater.inflate(R.layout.list_item_recipe, parent, false);
+      convertView = mInflater.inflate(R.layout.list_item_music, parent, false);
 
       // create a new "Holder" with subviews
       holder = new ViewHolder();
@@ -204,15 +143,15 @@ public class MusicAdapter extends BaseAdapter {
     ImageView thumbnailImageView = holder.thumbnailImageView;
 
     //Get corresponding recipe for row
-    MusicMapping musicMapping = (MusicMapping) getItem(position);
+    music musicMapp = (music) getItem(position);
 
     // Update row view's textviews to display recipe information
-    titleTextView.setText(musicMapping.name);
-    subtitleTextView.setText(musicMapping.author);
-    detailTextView.setText(musicMapping.genre);
+    titleTextView.setText(musicMapp.name);
+    subtitleTextView.setText(musicMapp.author);
+    detailTextView.setText(musicMapp.genre);
 
     // Use Picasso to load the image. Temporarily have a placeholder in case it's slow to load
-    Picasso.with(mContext).load(musicMapping.url).placeholder(R.drawable.ic_music).into(thumbnailImageView);
+    Picasso.with(mContext).load(musicMapp.url).placeholder(R.drawable.ic_music).into(thumbnailImageView);
 
     // Style text views
 //    Typeface titleTypeFace = Typeface.createFromAsset(mContext.getAssets(),
