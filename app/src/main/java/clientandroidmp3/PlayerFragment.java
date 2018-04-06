@@ -25,26 +25,6 @@ public class PlayerFragment extends Fragment implements EasyVideoCallback,Adapte
 //    private static final String TEST_URL = "http://"+ipServeur+":"+portServeur+"/MINIONS.mp3";
     private static final String URL = "http://"+ipServeur+":"+portServeur+"/sample.mp3";
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_myplayer);
-////        // Grabs a reference to the player view
-////        player = (EasyVideoPlayer) findViewById(R.id.player);
-////
-////        // Sets the callback to this Activity, since it inherits EasyVideoCallback
-////        player.setCallback(this);
-////        ServerPrx server = instanceIce();
-////        //                music oneMusic = new music("rger", "freg", "fre", "fref");
-//////        System.out.println(server.addDocument(oneMusic));
-////        for (music music : server.displayListMusic()) {
-////            System.out.println(music.name + "         " + music.genre + "      " + music.author + "           " + music.url);
-////        }
-//        server.LibvlcPlayerPlay();
-//        // Sets the source to the HTTP URL held in the TEST_URL variable.
-//        // To play files, you can use Uri.fromFile(new File("..."))
-//        player.setSource(Uri.parse(TEST_URL));
-//    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {

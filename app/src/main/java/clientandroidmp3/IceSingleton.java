@@ -8,10 +8,10 @@ import app.ServerPrx;
 
 public class IceSingleton {
 //    static final String ipServeur = "192.168.1.18"; // moi
-    static final String ipServeur = "192.168.42.210"; // moi
+//    static final String ipServeur = "192.168.42.210"; // moi
 //    static final String ipServeur = "192.168.0.17"; //momo parent
 //    static final String ipServeur = "192.168.0.17"; //momo appart
-//    static final String ipServeur = "10.126.3.95"; // ecole
+    static final String ipServeur = "10.126.1.32"; // ecole
 //    static final String ipServeur = "192.168.42.84"; // ipTelephone
     static final int portServeur = 8090;
     public static ServerPrx instanceIce() {

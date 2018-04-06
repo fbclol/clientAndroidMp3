@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         MusicAdapter adapter = new MusicAdapter(context, musicList);
 
         // Create list view
-        mListView = (ListView) view.findViewById(R.id.recipe_list_view);
+        mListView = (ListView) view.findViewById(R.id.music_list_view);
         mListView.setAdapter(adapter);
 
         // Set what happens when a list view item is clicked

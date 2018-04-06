@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new HomeFragment();
         } else if (id == R.id.player) {
             fragment = new PlayerFragment();
+        }else if (id == R.id.voiceApi) {
+            fragment = new VoiceFragment();
         } else if (id == R.id.github) {
             bundle.putString("url", "https://github.com/fbclol/mp3Ice");
             fragment = new WebViewFragment();

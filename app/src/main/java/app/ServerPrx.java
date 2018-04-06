@@ -153,39 +153,6 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default byte[] downloadDocument(music music)
-    {
-        return downloadDocument(music, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default byte[] downloadDocument(music music, java.util.Map<String, String> context)
-    {
-        return _iceI_downloadDocumentAsync(music, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<byte[]> downloadDocumentAsync(music music)
-    {
-        return _iceI_downloadDocumentAsync(music, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<byte[]> downloadDocumentAsync(music music, java.util.Map<String, String> context)
-    {
-        return _iceI_downloadDocumentAsync(music, context, false);
-    }
-
-    default com.zeroc.IceInternal.OutgoingAsync<byte[]> _iceI_downloadDocumentAsync(music iceP_music, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<byte[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "downloadDocument", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     music.ice_write(ostr, iceP_music);
-                 }, istr -> {
-                     byte[] ret;
-                     ret = istr.readByteSeq();
-                     return ret;
-                 });
-        return f;
-    }
-
     default void LibvlcPlayerPlay(String name)
     {
         LibvlcPlayerPlay(name, com.zeroc.Ice.ObjectPrx.noExplicitContext);

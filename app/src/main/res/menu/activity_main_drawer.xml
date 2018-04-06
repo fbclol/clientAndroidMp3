@@ -11,10 +11,9 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Player" />
         <item
-            android:id="@+id/examSchedule"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Exam Schedule"
-            android:visible="false" />
+            android:id="@+id/voiceApi"
+            android:icon="@android:drawable/stat_notify_voicemail"
+            android:title="Voice" />
         <item
             android:id="@+id/attendence"
             android:icon="@drawable/ic_menu_manage"
