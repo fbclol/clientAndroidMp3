@@ -34,6 +34,8 @@ public interface Server extends com.zeroc.Ice.Object
 
     void LibvlcPlayerStop(com.zeroc.Ice.Current current);
 
+    void LibvlcPlayerPause(com.zeroc.Ice.Current current);
+
     static final String[] _iceIds =
     {
         "::Ice::Object",
@@ -131,8 +133,17 @@ public interface Server extends com.zeroc.Ice.Object
         return inS.setResult(inS.writeEmptyParams());
     }
 
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_LibvlcPlayerPause(Server obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        inS.readEmptyParams();
+        obj.LibvlcPlayerPause(current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
     final static String[] _iceOps =
     {
+        "LibvlcPlayerPause",
         "LibvlcPlayerPlay",
         "LibvlcPlayerStop",
         "addDocument",
@@ -159,41 +170,45 @@ public interface Server extends com.zeroc.Ice.Object
         {
             case 0:
             {
-                return _iceD_LibvlcPlayerPlay(this, in, current);
+                return _iceD_LibvlcPlayerPause(this, in, current);
             }
             case 1:
             {
-                return _iceD_LibvlcPlayerStop(this, in, current);
+                return _iceD_LibvlcPlayerPlay(this, in, current);
             }
             case 2:
             {
-                return _iceD_addDocument(this, in, current);
+                return _iceD_LibvlcPlayerStop(this, in, current);
             }
             case 3:
             {
-                return _iceD_displayListMusic(this, in, current);
+                return _iceD_addDocument(this, in, current);
             }
             case 4:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return _iceD_displayListMusic(this, in, current);
             }
             case 5:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 7:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 8:
             {
-                return _iceD_removeDocument(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 9:
+            {
+                return _iceD_removeDocument(this, in, current);
+            }
+            case 10:
             {
                 return _iceD_searchDocument(this, in, current);
             }

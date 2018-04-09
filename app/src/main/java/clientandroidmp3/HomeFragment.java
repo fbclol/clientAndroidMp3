@@ -20,7 +20,8 @@ import app.ServerPrx;
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private ListView mListView;
-    final ServerPrx server = IceSingleton.instanceIce();
+    final static ServerPrx server = IceSingleton.instanceIce();
+    final static ArrayList<music> musicList = new ArrayList<>();
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -28,7 +29,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         final Context context = this.getContext();
 
-        final ArrayList<music> musicList = new ArrayList<>();
+        if (!musicList.isEmpty()) {
+            musicList.clear();
+        }
 
         for (music musicMapp : server.displayListMusic()) {
             music music = new music();
@@ -58,18 +61,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 Intent detailIntent = new Intent(context, MusicDetailActivity.class);
                 detailIntent.putExtra("title", selectedMusicMapping.name);
                 detailIntent.putExtra("url", selectedMusicMapping.author);
-
-
                 startActivity(detailIntent);
             }
-
         });
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.activity_list_musics, container, false);
     }
 

@@ -19,7 +19,7 @@ import app.*;
 
 public class PlayerFragment extends Fragment implements EasyVideoCallback,AdapterView.OnItemSelectedListener  {
     //    private static final String TEST_URL = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
-    private EasyVideoPlayer player;
+    public EasyVideoPlayer player;
     static final String ipServeur = IceSingleton.ipServeur; // moi
     static final int portServeur = IceSingleton.portServeur;
 //    private static final String TEST_URL = "http://"+ipServeur+":"+portServeur+"/MINIONS.mp3";
@@ -58,6 +58,8 @@ public class PlayerFragment extends Fragment implements EasyVideoCallback,Adapte
     public void onPause()  {
         super.onPause();
         // Make sure the player stops playing if the user presses the home button.
+        ServerPrx server = IceSingleton.instanceIce();
+        server.LibvlcPlayerPause();
         if (player.isPlaying() == true) {
             player.pause();
         }

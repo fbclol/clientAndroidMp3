@@ -209,6 +209,33 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default void LibvlcPlayerPause()
+    {
+        LibvlcPlayerPause(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void LibvlcPlayerPause(java.util.Map<String, String> context)
+    {
+        _iceI_LibvlcPlayerPauseAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPauseAsync()
+    {
+        return _iceI_LibvlcPlayerPauseAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> LibvlcPlayerPauseAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_LibvlcPlayerPauseAsync(context, false);
+    }
+
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_LibvlcPlayerPauseAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "LibvlcPlayerPause", null, sync, null);
+        f.invoke(false, context, null, null, null);
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.
