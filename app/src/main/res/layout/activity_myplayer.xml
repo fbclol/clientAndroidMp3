@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.afollestad.easyvideoplayer.EasyVideoPlayer xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/player"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,8 +14,20 @@
     app:evp_pauseDrawable="@drawable/evp_action_pause"
     app:evp_playDrawable="@drawable/evp_action_play"
     app:evp_restartDrawable="@drawable/evp_action_restart"
+    app:evp_rightAction="none"
     app:evp_retryText="@string/evp_retry"
-    app:evp_rightAction="submit"
+     >
 
-    app:evp_submitText="@string/evp_submit" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="right|center"
+        app:srcCompat="@drawable/ico_mic" />
+
+</com.afollestad.easyvideoplayer.EasyVideoPlayer>
     <!--app:evp_source="http://direct.franceculture.fr/live/franceculture-lofi.mp3"-->

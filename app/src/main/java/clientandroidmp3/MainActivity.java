@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if (id == R.id.voiceApi) {
             fragment = new VoiceFragment();
         } else if (id == R.id.github) {
-            bundle.putString("url", "https://github.com/fbclol/mp3Ice");
+            bundle.putString("url", Config.urlGitHub);
             fragment = new WebViewFragment();
             fragment.setArguments(bundle);
         }
