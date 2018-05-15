@@ -101,7 +101,7 @@ public class VoiceFragment extends Fragment {
                     recognitionProgressView.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                           // todo: appel de la fonction webservice
+                           // appel de la fonction webservice
                             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                             StrictMode.setThreadPolicy(policy);
                             try {
@@ -121,16 +121,13 @@ public class VoiceFragment extends Fragment {
                             }
 
                             // todo : aller sur la musique demandé
-
                             if (commande.equals("PLAY") && !titleMusic.isEmpty()) {
                                 runMusicVocal(titleMusic);
                             } else if (commande.equals("PAUSE")) {
 
                             } else if (commande.equals("LIST")) {
-
                                 Intent detailIntent = new Intent(getContext(), MainActivity.class);
                                 startActivity(detailIntent);
-
                             } else {
                                 Toast.makeText(getContext(),getString(R.string.speech_prompt),Toast.LENGTH_SHORT).show();
                             }
@@ -143,13 +140,16 @@ public class VoiceFragment extends Fragment {
     }
 
     public  void runMusicVocal(String titleMusic){
-         music selectedMusicMapping = IceSingleton.instanceIce().searchDocument("name",titleMusic)[0];
+        System.out.print(titleMusic);
+        try {
+            music selectedMusicMapping = IceSingleton.instanceIce().searchDocument("name",titleMusic)[0];
+            Intent detailIntent = new Intent(recognitionProgressView.getContext(), MusicDetailActivity.class);
+            detailIntent.putExtra("title", selectedMusicMapping.name);
+            detailIntent.putExtra("url", selectedMusicMapping.author);
 
-        Intent detailIntent = new Intent(recognitionProgressView.getContext(), MusicDetailActivity.class);
-        detailIntent.putExtra("title", selectedMusicMapping.name);
-        detailIntent.putExtra("url", selectedMusicMapping.author);
-
-        startActivity(detailIntent);
+            startActivity(detailIntent);
+        } catch  (Throwable t) {
+        }
     }
 
     private void requestPermission() {

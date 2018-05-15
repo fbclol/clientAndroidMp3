@@ -8,10 +8,11 @@ public class Config {
     //    static final String ipServeur = "192.168.42.210"; // moi
     //    static final String ipServeur = "192.168.0.17"; //momo parent
     //    static final String ipServeur = "192.168.0.17"; //momo appart
-    //    static final String ipServeur = "10.126.1.32"; // ecole
+//        static final String ipServeur = "10.126.3.125"; // ecole
     //    static final String ipServeur = "192.168.42.84"; // ipTelephone
-    //    static final String ipServeur = "198.245.61.84"; // ip du domaine fbclol.fr (production)
-    static final String ipServeur = "192.168.1.18"; // moi
+        static final String ipServeur = "fbclol.fr"; // ip du domaine fbclol.fr (production)
+//    static final String ipServeur = "192.168.1.18"; // moi
+//    static final String ipServeur = "192.168.42.210"; // moi
 
     static final String ipIce           = ipServeur;
     static final int portIce            = 10000;
